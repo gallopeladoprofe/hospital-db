@@ -27,9 +27,6 @@ CREATE TABLE cama(
     , FOREIGN KEY(pla_nro) REFERENCES planta(pla_nro) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
--- A esta tabla le falta una FK
--- Podes usar este para arreglar
--- ALTER TABLE paciente_cama ADD FOREIGN KEY(nss) REFERENCES paciente(nss) ON UPDATE CASCADE ON DELETE RESTRICT;
 CREATE TABLE paciente_cama(
     cam_nro INTEGER
     , pla_nro INTEGER
@@ -37,6 +34,7 @@ CREATE TABLE paciente_cama(
     , fecha_cama DATE NOT NULL DEFAULT CURRENT_DATE
     , PRIMARY KEY(cam_nro, pla_nro, nss)
     , FOREIGN KEY(cam_nro, pla_nro) REFERENCES cama(cam_nro, pla_nro) ON UPDATE CASCADE ON DELETE RESTRICT
+    , FOREIGN KEY(nss) REFERENCES paciente(nss) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 CREATE TABLE medico(

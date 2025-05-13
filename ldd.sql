@@ -28,6 +28,8 @@ CREATE TABLE cama(
 );
 
 -- A esta tabla le falta una FK
+-- Podes usar este para arreglar
+-- ALTER TABLE paciente_cama ADD FOREIGN KEY(nss) REFERENCES paciente(nss) ON UPDATE CASCADE ON DELETE RESTRICT;
 CREATE TABLE paciente_cama(
     cam_nro INTEGER
     , pla_nro INTEGER
